@@ -23,8 +23,47 @@
     },
     {
       "files": ["*.ts", "*.tsx"],
-      "extends": ["plugin:@nrwl/nx/typescript"],
-      "rules": {}
+      "extends": ["plugin:@nrwl/nx/typescript", "airbnb", "airbnb-typescript"],
+      "parserOptions": {
+        "project": "tsconfig.base.json"
+      },
+      "rules": {
+        "indent": ["error", 4],
+        "@typescript-eslint/indent": ["warn", 4],
+        "react/jsx-indent": ["warn", 4],
+        "react/jsx-indent-props": ["warn", 4],
+        "import/no-cycle": ["off"],
+        "import/prefer-default-export": ["off"],
+        "class-methods-use-this": ["off"],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "no-underscore-dangle": ["off"],
+        "react/function-component-definition": [1, { "namedComponents": "arrow-function" }],
+        "arrow-body-style": ["off"],
+        "react/jsx-props-no-spreading": ["off"],
+        "@typescript-eslint/no-empty-interface": ["off"],
+        "@typescript-eslint/naming-convention": [
+          "warn",
+          { "selector": "variableLike", "format": ["snake_case", "PascalCase", "camelCase", "UPPER_CASE"], "leadingUnderscore": "allow" }
+        ],
+        "jsx-a11y/anchor-is-valid": [ "error", {
+          "components": [ "Link" ],
+          "specialLink": [ "to" ]
+        }],
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "*",
+                "onlyDependOnLibsWithTags": ["*"]
+              }
+            ]
+          }
+        ]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],
