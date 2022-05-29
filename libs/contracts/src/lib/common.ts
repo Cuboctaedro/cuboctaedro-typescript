@@ -7,3 +7,7 @@ export type With_ID = {
 export type With_Status = {
     status: IStatus;
 };
+
+export type With_Slug = {
+    slug: string;
+};

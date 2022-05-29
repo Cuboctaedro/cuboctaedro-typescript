@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Index = () => {
+export const Work = () => {
     return (
         <div>
-            Home
+            Work
         </div>
     );
 };
